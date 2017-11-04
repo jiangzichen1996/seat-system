@@ -5,7 +5,7 @@ webpackJsonp([0],[
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(2);
-module.exports = __webpack_require__(3);
+module.exports = __webpack_require__(4);
 
 
 /***/ }),
@@ -16,7 +16,8 @@ module.exports = __webpack_require__(3);
 
 
 /***/ }),
-/* 3 */
+/* 3 */,
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -26,6 +27,7 @@ __webpack_require__(5);
 
 __webpack_require__(6);
 
+/* 弹出层 */
 function Dialog(settings) {
     this.defaulstSettings = {
         width: 500,
@@ -74,10 +76,10 @@ $("#btn").on("click", function () {
     var dialog = new Dialog(settings);
     dialog.open();
 });
+/*  */
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */,
 /* 5 */
 /***/ (function(module, exports) {
 

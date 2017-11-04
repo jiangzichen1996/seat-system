@@ -67,6 +67,8 @@ body{
     display: flex;
     flex-grow:1; 
     width: 25%;
+    margin-left: 15px;
+
 
 }
 .active{

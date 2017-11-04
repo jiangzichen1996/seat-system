@@ -1,5 +1,6 @@
  import '../css/index.css';
  import '../css/dialog.css';
+/* 弹出层 */
  function Dialog(settings){
      this.defaulstSettings = {
          width: 500,
@@ -48,3 +49,4 @@ $("#btn").on("click", function(){
     var dialog = new Dialog(settings);
     dialog.open();
 });
+/*  */
