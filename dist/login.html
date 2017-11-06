@@ -1,24 +1,18 @@
-<form action="">
-        用户名: <input type="text">
-        <br>
-        密码： <input type="password">
-        <br>
-        <input type="button" value="提交">
-    </form>
-    <div id="details">
-            <span class="hint">
-                该位置已有人使用
-            </span>
-            <br>
-            <span class="time">
-                在经过
-                <span class="next-chose"></span>
-                可重新选择
-            </span>
-    </div>
-    <div id="spare">
-            <span class="hint">
-                    是否选择该座位
-                </span>
-                <br>
-    </div>
+<form id="LoginForm" class="common" action="assets/PHP/doAction.php?act=login" method="post">  
+        <div>  
+                <label id="login_username">登录名称：</label>  
+                <input id="login_username" name="username" type="text"/>  
+                <p id="info_login_username"></p>  
+        </div>  
+        <div>  
+                <label id="login_password">登陆密码：</label>  
+                <input id="login_password" name="password" type="password"/>  
+                <p id="info_login_password"></p>  
+        </div>  
+          
+        <div id="login_button">  
+            <input type="submit" id="login_login" value="登  陆"/>  
+            <input type="button" id="login_reg" value="注  册" onClick="location.href='register.php'"/>  
+  
+        </div>  
+    </form>  
