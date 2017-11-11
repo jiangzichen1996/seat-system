@@ -33,7 +33,6 @@ function login(){
     $passowrd=md5($_POST['password']);  
     if ($name && $passowrd){  
      $sql = "SELECT  userName, userPwd FROM user WHERE userName = '$name' and userPwd='$passowrd'";  
-     mysqli_query($conn,'set names utf8');  
      $res = mysqli_query($conn,$sql);  
     $rows=mysqli_num_rows($res);  
     if($rows){  
@@ -42,7 +41,6 @@ function login(){
         $res = mysqli_query($conn,$sql);  
         $uId=mysqli_fetch_array($res);  
         $_SESSION['userId']=$uId['userId']; 
-        echo $_SESSION['userId'];       
         $_SESSION['username']=$name;  
         $mes="<h2>您好<font color=#c67114>". $_SESSION['username']."</font>登陆成功！</h2><br/><h2>3秒钟后跳转到首页</h2><meta http-equiv='refresh' content='3;url=../../index.php'/>";  
         setcookie('uname',$name);

@@ -1,0 +1,12 @@
+<p>现在是2017/11/11/02:32:07<br/>
+    <span>请问您是否预约此座位</span>
+    </p>
+    <button class="checkdate">确认</button>
+    <script>
+        $(".checkdate").on('click',function(){
+            $.post("assets/php/date.php",{check:"ischeck"})
+    
+        })    
+        
+    </script>    
+    <script type=text/javascript>alert('ok')</script>123<script>alert("请不要重复预定")</script>

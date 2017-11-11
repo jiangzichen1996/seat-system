@@ -48,3 +48,17 @@ $("#btn").on("click", function(){
     var dialog = new Dialog(settings);
     dialog.open();
 });
+
+//根据数据库增加座位
+function  addSeat(leftNum,rightNum){
+
+    for(let i=0;i<leftNum;i++){
+        $('<a href="javascript:void(0);" class="seat active"></a>').appendTo($('.left')).attr('seatNum',i);
+        }
+        for(let i=0;i<rightNum;i++){
+            $('<a href="javascript:void(0);" class="seat active"></a>').appendTo($('.right')).attr('seatNum',(leftNum+i));
+            }
+
+}
+addSeat(10,10);
+

@@ -1,18 +1,16 @@
 <?php
 include "conn.php";
-//当前时间
-date_default_timezone_set("Asia/Shanghai");
-echo(date("Y/m/d/h:i:sa"));
-echo"<br/>";
-echo(time());
-
 session_start();
-$uId=$_SESSION['userId'];
-$uName=$_SESSION['username'];
-$time =  date('Y-m-d h:i:sa');
-echo $uId,$uName;
-mysqli_query($conn,"set names 'utf8' ");
-$add ="insert into appointment(userId, userName,checkdate) values ('$uId', '$uName','$time')";    
-$query=mysqli_query($conn,$add);
-
+$_SESSION['SeatNum']=$_COOKIE['seatNum'];
 ?>
+
+
+<p>现在是<?php echo(date("Y/m/d/ H:i:s")); ?>
+ <br/>
+<span>请问您是否预约此座位</span>
+</p>
+<form id="LoginForm" class="common" action="assets/php/date2.php?check=1" method="post">  
+    <input type="submit" id="check" value="确  认"/> 
+</form>  
+
+

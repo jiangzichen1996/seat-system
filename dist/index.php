@@ -28,38 +28,65 @@
                 </ul>
             </div>
             <div class="main main-small">
-                <div class=item>
-                    <a href="" class="seat active"></a>
-                    <a href="" class="seat selected"></a>
-                    <a href="" class="seat disabled"></a>
+                <div class="item">
+                    <div class="left">
+                    </div>
+                    <div class="right">
+                    </div>
+                    
                 </div>
             </div>   
         </div>
         <button id='btn'>
-            选座
+            登录
         </button>
 <script type=text/javascript src='assets/js/jquery.js'></script>
+<script src="assets/js/jquery.cookie.js"></script>
 <script type=text/javascript src='assets/js/index.js'></script>
 </body>
 <?php
+error_reporting(E_ALL || ~E_NOTICE);
         session_start();
-        $uId=$_SESSION['userId'];
-        echo  $uId;
     if(isset($_SESSION['username'])){
-        echo $_SESSION['username'];
+        echo $_SESSION['username']."您好";
         echo'<script>
-        $("#btn").off().on("click", function(){
+        $(".active").on("click", function(){
             var settings = {
                 width: 300,
                 height: 200,
                 title: "选座信息",
                 content: "assets/php/date.php"
             };
+            $Check=$(this).attr("seatNum");
             var dialog = new Dialog(settings);
+            $.cookie("seatNum",$Check);
             dialog.open();
         });  </script>';
     }
-
-
+    include "assets/php/conn.php";
+    $uId=$_SESSION['userId'];
+    $que="select seatNum from appointment";
+    $que2="select seatNum from appointment where userId=$uId";
+    $res=mysqli_query($conn,$que);
+    $res2=mysqli_query($conn,$que2); 
+    $result=mysqli_fetch_array($res2);
+    $array=array();
+    $array2=array();
+    array_push($array2,$result['seatNum']);        
+    while($row=mysqli_fetch_array($res)){
+        array_push($array,$row['seatNum']);
+    }
+    $str=json_encode($array);
+    $str2=json_encode($array2);
 ?>
+<script>
+let disableSeat=eval('<?php echo $str;?>');
+let checkSeat=eval('<?php echo $str2;?>');
+console.log(checkSeat[0]);
+for(let p in disableSeat){
+    $('.item a[seatNum='+disableSeat[p]+']').removeClass('active').addClass('disabled');
+};
+    $('.item a[seatNum='+checkSeat[0]+']').removeClass('disabled').addClass('selected');
+</script>
+
 </html>
