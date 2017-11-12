@@ -1,27 +1,40 @@
-<form id="RegisterForm" class="common" action="assets/php/link.php?act=reg" method="post" onsubmit="checkall()">  
+<form id="RegisterForm" onsubmit="return check()" class="common" action="assets/php/link.php?act=reg" method="post" onsubmit="checkall()">  
     <div>  
-            <label id="label_username">姓 名 <span>*&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;</span></label>  
-            <input id="username" name="username" type="text" onkeyup="checkname()"/>  
-    </div>  
+            <label id="label_username">用户名 <span>*&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;</span></label>  
+            <input id="username" name="username" type="text"/>  
+    
+    
+        </div>  
     <div>  
             <label id="label_reg_password">密 码 <span>*&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;  &nbsp; &nbsp; &nbsp;</span></label>  
-            <input id="reg_password" name="password" type="password" onkeyup="checkpassword()"/>  
+            <input id="reg_password" name="password" type="password" />  
     </div>  
      <div>  
             <label id="label_repassword">请重复输入密码 <span>*</span></label>  
-            <input id="repassword" name="repassword" type="password" onkeyup="checkrepassword()"/>  
+            <input id="repassword" name="repassword" type="password" >  
     </div>  
     <div>  
             <label id="label_phone">手机号码<span> *&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></label>  
-            <input id="phone" name="phone" type="text" onkeyup="checkphone()" />  
+            <input id="phone" name="phone" type="text"  />  
     </div>  
-    <div>  
-            <label id="label_qq">QQ号码 <span>*&nbsp;&nbsp;  &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;</span></label>  
-            <input id="QQ" name="QQ" type="text" onkeyup="checkqq()"/>  
-    </div>  
-    <br />  
+  
+    <p>验证码: <img id="captcha_img" src='./assets/php/captcha.php' style="width:100px;  height:30px" />
+        <a  href="javascript:void(0);" onclick="changing()">换一个?</a>
+    </br>
+</br>
+
+      <P>请输入验证码:<input type="text" name='authcode' value=''/></p>    
+      </br>  
     <div id="button">  
         <input type="reset" id="reg_reset" value="重置"/>  
-        <input type="submit" id="reg_submit" value="提交"/>  
+        <input type="button"  id="reg_submit" value="提交"/>  
     </div>  
 </form>  
+<script>
+function changing(){
+        document.getElementById('captcha_img').src="./assets/php/captcha.php?"+Math.random();
+    } 
+
+</script>
+<script src="assets/js/check.js"></script>
+

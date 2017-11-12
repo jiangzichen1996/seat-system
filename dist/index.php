@@ -82,7 +82,6 @@ error_reporting(E_ALL || ~E_NOTICE);
 <script>
 let disableSeat=eval('<?php echo $str;?>');
 let checkSeat=eval('<?php echo $str2;?>');
-console.log(checkSeat[0]);
 for(let p in disableSeat){
     $('.item a[seatNum='+disableSeat[p]+']').removeClass('active').addClass('disabled');
 };
