@@ -13,6 +13,7 @@ if($act){
         $url="http://localhost:8080/seat-system/assets/php/fail.php" ;       
     }else{
             $time =  date('Y-m-d H:i:sa');
+             
             mysqli_query($conn,"set names 'utf8' ");
             echo($uSeat);
             $add ="insert into appointment(userId, userName,checkdate,seatNum) values ('$uId', '$uName','$time','$uSeat')";    

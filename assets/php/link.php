@@ -50,8 +50,6 @@ function reg(){
     //提示以及跳转页面
     echo "<script>alert('验证码错误!');</script>";
     $mes="<meta http-equiv='refresh' content='1;url=../../index.php'/>";  
-    
-
   }
     return $mes;  
 }  

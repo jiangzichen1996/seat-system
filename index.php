@@ -40,9 +40,19 @@
         <button id='btn'>
             登录
         </button>
+        <button id='btn2'>
+            注销
+        </button>
+        <button id='btn3'>
+            反馈
+        </button>
+        <button id='btn4'>
+            暂时离开
+        </button>
 <script type=text/javascript src='assets/js/jquery.js'></script>
 <script src="assets/js/jquery.cookie.js"></script>
 <script type=text/javascript src='assets/js/index.js'></script>
+
 </body>
 <?php
 error_reporting(E_ALL || ~E_NOTICE);
